@@ -1,6 +1,5 @@
 package com.elcentr.dao;
 
-import com.elcentr.model.Customer;
 import com.elcentr.model.ResidentialComplex;
 import org.junit.jupiter.api.Test;
 

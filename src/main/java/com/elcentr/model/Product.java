@@ -2,7 +2,10 @@ package com.elcentr.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Data
 @Builder
@@ -11,26 +14,25 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "products")
 @Entity
-public class Product extends BaseEntity{
-
+public class Product extends BaseEntity {
 
     @ManyToOne(targetEntity = Component.class)
     private Component component;
 
-    @Column(name = "time_registration")
+    @Column(name = "time_registration", nullable = false)
     private Long timeRegistration;
 
     @Column(name = "time_end")
     private Long timeEnd;
 
-    @Column(name = "code_product", nullable = false)
-    private Integer codeProduct;
+    @Column(nullable = false)
+    private Integer code;
 
-    @Column(name = "amount_product", nullable = false)
-    private Integer amountProduct;
+    @Column(nullable = false)
+    private Integer amount;
 
-    @Column(name = "name_product", nullable = false)
-    private String nameProduct;
+    @Column(nullable = false)
+    private String name;
 
     private String passport;
 

@@ -2,7 +2,10 @@ package com.elcentr.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Data
 @Builder
@@ -11,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "orders")
 @Entity
-public class Order extends BaseEntity{
+public class Order extends BaseEntity {
 
     @ManyToOne(targetEntity = Product.class)
     private Product product;

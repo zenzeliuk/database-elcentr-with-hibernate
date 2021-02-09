@@ -2,7 +2,9 @@ package com.elcentr.model;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Builder
@@ -11,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "customers")
 @Entity
-public class Customer extends BaseEntity{
+public class Customer extends BaseEntity {
 
     @Column(nullable = false)
     private String name;
