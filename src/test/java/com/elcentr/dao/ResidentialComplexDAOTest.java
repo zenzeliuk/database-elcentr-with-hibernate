@@ -10,8 +10,7 @@ class ResidentialComplexDAOTest {
     @Test
     void save() {
         ResidentialComplex residentialComplex = ResidentialComplex.builder()
-                .name("Файна таун")
-                .address("вул. Салютна, 2б")
+                .name("test-name")
                 .build();
         ResidentialComplex savedRC = new ResidentialComplexDAO().save(residentialComplex);
         assertNotNull(savedRC.getId());
@@ -20,8 +19,7 @@ class ResidentialComplexDAOTest {
     @Test
     void findById() {
         ResidentialComplex residentialComplex = ResidentialComplex.builder()
-                .name("Файна таун")
-                .address("вул. Салютна, 2б")
+                .name("test-name")
                 .build();
         ResidentialComplexDAO residentialComplexDAO = new ResidentialComplexDAO();
         ResidentialComplex savedRC = residentialComplexDAO.save(residentialComplex);
@@ -34,8 +32,7 @@ class ResidentialComplexDAOTest {
     @Test
     void delete() {
         ResidentialComplex residentialComplex = ResidentialComplex.builder()
-                .name("Файна таун")
-                .address("вул. Салютна, 2б")
+                .name("test-name")
                 .build();
         ResidentialComplexDAO residentialComplexDAO = new ResidentialComplexDAO();
         ResidentialComplex savedRC = residentialComplexDAO.save(residentialComplex);
@@ -49,17 +46,16 @@ class ResidentialComplexDAOTest {
     @Test
     void update() {
         ResidentialComplex residentialComplex = ResidentialComplex.builder()
-                .name("Файна таун")
-                .address("вул. Смалютна, 2б")
+                .name("test-name")
                 .build();
         ResidentialComplexDAO residentialComplexDAO = new ResidentialComplexDAO();
         ResidentialComplex savedRC = residentialComplexDAO.save(residentialComplex);
         assertNotNull(savedRC.getId());
-        String nameBeforeUpdate = savedRC.getAddress();
+        String nameBeforeUpdate = savedRC.getName();
 
-        savedRC.setAddress("вул. Салютна, 2б");
+        savedRC.setName("new-test-name");
         residentialComplexDAO.update(savedRC);
-        String nameAfterUpdate = savedRC.getAddress();
+        String nameAfterUpdate = savedRC.getName();
 
         assertFalse(nameBeforeUpdate.equals(nameAfterUpdate));
     }

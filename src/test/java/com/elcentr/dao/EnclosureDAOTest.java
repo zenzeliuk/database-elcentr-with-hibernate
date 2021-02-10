@@ -1,6 +1,5 @@
 package com.elcentr.dao;
 
-import com.elcentr.model.Customer;
 import com.elcentr.model.Enclosure;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EnclosureDAOTest {
 
     @Test
-    void save(){
+    void save() {
         Enclosure enclosure = Enclosure.builder()
                 .name("test-name")
                 .build();
@@ -46,18 +45,17 @@ class EnclosureDAOTest {
 
     @Test
     void update() {
-        Customer customer = Customer.builder()
-                .name("КАН")
-                .notes("test_notes")
+        Enclosure enclosure = Enclosure.builder()
+                .name("test-name")
                 .build();
-        CustomerDAO customerDAO = new CustomerDAO();
-        Customer savedCustomer = customerDAO.save(customer);
-        assertNotNull(savedCustomer.getId());
-        String nameBeforeUpdate = savedCustomer.getName();
+        EnclosureDAO enclosureDAO = new EnclosureDAO();
+        Enclosure savedEnclosure = enclosureDAO.save(enclosure);
+        assertNotNull(savedEnclosure.getId());
+        String nameBeforeUpdate = savedEnclosure.getName();
 
-        savedCustomer.setName("Міськжитлобуд");
-        customerDAO.update(savedCustomer);
-        String nameAfterUpdate = savedCustomer.getName();
+        savedEnclosure.setName("new-test-name");
+        enclosureDAO.update(savedEnclosure);
+        String nameAfterUpdate = savedEnclosure.getName();
 
         assertFalse(nameBeforeUpdate.equals(nameAfterUpdate));
     }

@@ -10,8 +10,7 @@ class CustomerDAOTest {
     @Test
     void save() {
         Customer customer = Customer.builder()
-                .name("КАН")
-                .notes("test_notes")
+                .name("test-name")
                 .build();
         Customer savedCustomer = new CustomerDAO().save(customer);
         assertNotNull(savedCustomer.getId());
@@ -20,8 +19,7 @@ class CustomerDAOTest {
     @Test
     void findById() {
         Customer customer = Customer.builder()
-                .name("КАН")
-                .notes("test_notes")
+                .name("test-name")
                 .build();
         CustomerDAO customerDAO = new CustomerDAO();
         Customer savedCustomer = customerDAO.save(customer);
@@ -34,8 +32,7 @@ class CustomerDAOTest {
     @Test
     void delete() {
         Customer customer = Customer.builder()
-                .name("КАН")
-                .notes("test_notes")
+                .name("test-name")
                 .build();
         CustomerDAO customerDAO = new CustomerDAO();
         Customer savedCustomer = customerDAO.save(customer);
@@ -49,15 +46,14 @@ class CustomerDAOTest {
     @Test
     void update() {
         Customer customer = Customer.builder()
-                .name("КАН")
-                .notes("test_notes")
+                .name("test-name")
                 .build();
         CustomerDAO customerDAO = new CustomerDAO();
         Customer savedCustomer = customerDAO.save(customer);
         assertNotNull(savedCustomer.getId());
         String nameBeforeUpdate = savedCustomer.getName();
 
-        savedCustomer.setName("Міськжитлобуд");
+        savedCustomer.setName("new-test-name");
         customerDAO.update(savedCustomer);
         String nameAfterUpdate = savedCustomer.getName();
 
