@@ -16,9 +16,6 @@ import javax.persistence.Table;
 @Entity
 public class Product extends BaseEntity {
 
-    @ManyToOne(targetEntity = Component.class)
-    private Component component;
-
     @Column(name = "time_registration", nullable = false)
     private Long timeRegistration;
 
@@ -53,4 +50,20 @@ public class Product extends BaseEntity {
 
     private Integer depth;
 
+    public Product(Integer id, Long timeRegistration, Long timeEnd, Integer code, Integer amount, String name, String passport, String photo, Integer nominalCurrent, Integer indexProtectionProduct, String decimalNumber, Integer height, Integer width, Integer depth) {
+        super.setId(id);
+        this.timeRegistration = timeRegistration;
+        this.timeEnd = timeEnd;
+        this.code = code;
+        this.amount = amount;
+        this.name = name;
+        this.passport = passport;
+        this.photo = photo;
+        this.nominalCurrent = nominalCurrent;
+        this.indexProtectionProduct = indexProtectionProduct;
+        this.decimalNumber = decimalNumber;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+    }
 }

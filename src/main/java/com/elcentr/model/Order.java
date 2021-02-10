@@ -2,10 +2,7 @@ package com.elcentr.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Builder
@@ -25,4 +22,10 @@ public class Order extends BaseEntity {
     @OneToOne(targetEntity = ResidentialComplex.class)
     private ResidentialComplex residentialComplex;
 
+    public Order(Integer id, Product product, Customer customer, ResidentialComplex residentialComplex) {
+        super.setId(id);
+        this.product = product;
+        this.customer = customer;
+        this.residentialComplex = residentialComplex;
+    }
 }

@@ -45,4 +45,20 @@ public class Enclosure extends BaseEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
+    public Enclosure(Integer id, String manufacturer, String code, String category, String name, String typeOfInstallation, String color, String material, Integer height, Integer width, Integer depth, Integer indexProtection, String url, String imageUrl) {
+        super.setId(id);
+        this.manufacturer = manufacturer;
+        this.code = code;
+        this.category = category;
+        this.name = name;
+        this.typeOfInstallation = typeOfInstallation;
+        this.color = color;
+        this.material = material;
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+        this.indexProtection = indexProtection;
+        this.url = url;
+        this.imageUrl = imageUrl;
+    }
 }

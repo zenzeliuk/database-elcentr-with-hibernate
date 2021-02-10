@@ -15,9 +15,13 @@ import javax.persistence.Table;
 @Entity
 public class Customer extends BaseEntity {
 
-    @Column(nullable = false)
     private String name;
 
     private String notes;
 
+    public Customer(Integer id, String name, String notes) {
+        super.setId(id);
+        this.name = name;
+        this.notes = notes;
+    }
 }

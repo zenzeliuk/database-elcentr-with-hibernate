@@ -16,10 +16,20 @@ import javax.persistence.Table;
 @Entity
 public class Component extends BaseEntity {
 
+    @ManyToOne(targetEntity = Product.class)
+    private Product product;
+
     @ManyToOne(targetEntity = Enclosure.class)
     private Enclosure enclosure;
 
-    @Column(nullable = false)
-    private Integer amount;
+    @Column(name = "amount_enclosure", nullable = false)
+    private Integer amountEnclosure;
+
+    public Component(Integer id, Product product, Enclosure enclosure, Integer amountEnclosure) {
+        super.setId(id);
+        this.product = product;
+        this.enclosure = enclosure;
+        this.amountEnclosure = amountEnclosure;
+    }
 
 }

@@ -20,4 +20,9 @@ public class ResidentialComplex extends BaseEntity {
 
     private String address;
 
+    public ResidentialComplex(Integer id,String name, String address) {
+        super.setId(id);
+        this.name = name;
+        this.address = address;
+    }
 }
