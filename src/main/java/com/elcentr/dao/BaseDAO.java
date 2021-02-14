@@ -8,9 +8,6 @@ import org.hibernate.Transaction;
 
 import java.lang.reflect.ParameterizedType;
 
-import static java.util.Objects.isNull;
-import static java.util.Objects.nonNull;
-
 public class BaseDAO<T extends BaseEntity> {
 
     private Class<T> type;
@@ -21,9 +18,6 @@ public class BaseDAO<T extends BaseEntity> {
     }
 
     public T findById(Integer id) {
-        if (isNull(id)) {
-            throw new RuntimeException("Search is failed!");
-        }
         SessionFactory sessionFactory = postgresSessionFactory.getHibernateSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -32,7 +26,6 @@ public class BaseDAO<T extends BaseEntity> {
         session.close();
         return t;
     }
-
 
     public T save(T t) {
         SessionFactory sessionFactory = postgresSessionFactory.getHibernateSessionFactory();
@@ -46,9 +39,6 @@ public class BaseDAO<T extends BaseEntity> {
     }
 
     public T update(T t) {
-        if (isNull(t.getId())) {
-            throw new RuntimeException("Update is failed!");
-        }
         SessionFactory sessionFactory = postgresSessionFactory.getHibernateSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -59,9 +49,6 @@ public class BaseDAO<T extends BaseEntity> {
     }
 
     public void delete(T t) {
-        if (isNull(t.getId())) {
-            throw new RuntimeException("Delete is failed!");
-        }
         SessionFactory sessionFactory = postgresSessionFactory.getHibernateSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -69,6 +56,5 @@ public class BaseDAO<T extends BaseEntity> {
         transaction.commit();
         session.close();
     }
-
 
 }
