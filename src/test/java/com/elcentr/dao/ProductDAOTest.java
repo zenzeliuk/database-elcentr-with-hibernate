@@ -12,7 +12,7 @@ class ProductDAOTest {
     void save() {
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -24,7 +24,7 @@ class ProductDAOTest {
     void findById() {
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -40,7 +40,7 @@ class ProductDAOTest {
     void delete() {
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -57,7 +57,7 @@ class ProductDAOTest {
     void update() {
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();

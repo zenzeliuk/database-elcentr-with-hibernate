@@ -23,7 +23,7 @@ public class Product extends BaseEntity {
     private Long timeEnd;
 
     @Column(nullable = false)
-    private Integer code;
+    private String code;
 
     @Column(nullable = false)
     private Integer amount;
@@ -50,7 +50,7 @@ public class Product extends BaseEntity {
 
     private Integer depth;
 
-    public Product(Integer id, Long timeRegistration, Long timeEnd, Integer code, Integer amount, String name, String passport, String photo, Integer nominalCurrent, Integer indexProtectionProduct, String decimalNumber, Integer height, Integer width, Integer depth) {
+    public Product(Integer id, Long timeRegistration, Long timeEnd, String code, Integer amount, String name, String passport, String photo, Integer nominalCurrent, Integer indexProtectionProduct, String decimalNumber, Integer height, Integer width, Integer depth) {
         super.setId(id);
         this.timeRegistration = timeRegistration;
         this.timeEnd = timeEnd;

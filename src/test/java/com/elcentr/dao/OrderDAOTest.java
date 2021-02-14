@@ -24,7 +24,7 @@ class OrderDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021002)
+                .code("21021002")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -54,7 +54,7 @@ class OrderDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021002)
+                .code("21021002")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -88,7 +88,7 @@ class OrderDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021002)
+                .code("21021002")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -122,7 +122,7 @@ class OrderDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021002)
+                .code("21021002")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();

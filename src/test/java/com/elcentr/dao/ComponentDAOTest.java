@@ -3,14 +3,13 @@ package com.elcentr.dao;
 
 import com.elcentr.model.Component;
 import com.elcentr.model.Enclosure;
-import com.elcentr.model.Order;
 import com.elcentr.model.Product;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ComponentDAOTest {
 
@@ -20,7 +19,7 @@ class ComponentDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -50,7 +49,7 @@ class ComponentDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -83,7 +82,7 @@ class ComponentDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -117,7 +116,7 @@ class ComponentDAOTest {
         ProductDAO productDAO = new ProductDAO();
         Product product = Product.builder()
                 .amount(1)
-                .code(21021001)
+                .code("21021001")
                 .name("test-name")
                 .timeRegistration(new Date().getTime())
                 .build();
@@ -156,7 +155,41 @@ class ComponentDAOTest {
 
         assertFalse(idEnclosureBeforeUpdate.equals(idEnclosureAfterUpdate));
         assertFalse(savedComponent.getEnclosure().getId().equals(savedEnclosure.getId()));
-        
+
+    }
+
+    @Test
+    void findAllProductWhereEnclosureIs() {
+        ProductDAO productDAO = new ProductDAO();
+        Product product = Product.builder()
+                .amount(1)
+                .code("0236")
+                .name("test-name")
+                .timeRegistration(new Date().getTime())
+                .build();
+        Product savedProduct = productDAO.save(product);
+        assertNotNull(savedProduct.getId());
+
+        EnclosureDAO enclosureDAO = new EnclosureDAO();
+        Enclosure enclosure = Enclosure.builder()
+                .name("test-test")
+                .build();
+        Enclosure savedEnclosure = enclosureDAO.save(enclosure);
+        assertNotNull(savedEnclosure.getId());
+
+        ComponentDAO componentDAO = new ComponentDAO();
+        Component component = Component.builder()
+                .amountEnclosure(1)
+                .enclosure(savedEnclosure)
+                .product(savedProduct)
+                .build();
+        Component savedComponent = componentDAO.save(component);
+        assertNotNull(savedComponent.getId());
+
+        List<Component> result = componentDAO.findAllProductWhereEnclosureIs(enclosure);
+        assertNotNull(result);
+        assertFalse(result.isEmpty());
+
     }
 
 }
